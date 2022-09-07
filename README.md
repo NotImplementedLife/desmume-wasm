@@ -4,6 +4,22 @@
 
 This fork is meant to add new debug log features, so that programmers can easily check what happens in their code avoiding stdio logic, which takes up code space and uses at least one background layer to be displayed (which is incommodating if your game visuals need all 4 layers of a screen).
 
+# How it works
+
+The Thumb instruction `mov r7,r7` is chosen as a breakpoint signal. That means, when that instruction is executed, the emulator prints out a message stored at the address refered by the `r6` register. 
+
+Example of DS code:
+
+```
+  push {r6}
+  ldr r6, =message 
+  mov r7, r7
+  pop {r7}
+
+message:
+    .ascii "Hello world from NDS logs!\n"
+```
+
 # Performance
 
 Most 2D games could be run at 60fps on A14-based devices. 
