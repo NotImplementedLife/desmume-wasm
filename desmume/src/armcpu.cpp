@@ -709,7 +709,7 @@ u32 armcpu_exec()
 	DEBUG_statistics.instructionHits[PROCNUM].thumb[ARMPROC.instruction>>6]++;
 	#endif	
 		
-	if(ARMPROC.instruction == 0x463F)
+	if(ARMPROC.instruction == 0x463F || ARMPROC.instruction == 0x4636 || ARMPROC.instruction == 0x462D)
 	{
 		int log_msg_addr = NDS_ARM9.R[6]; // or use ARMPROC
 		//printf("Log at %08X", log_msg_addr);
@@ -720,7 +720,18 @@ u32 armcpu_exec()
 		char* msg = new char[length+1];
 		for(int i=0;i<length;i++) msg[i]=_MMU_ARM9_read08(log_msg_addr+i);
 		msg[length] = '\0';
-		printf("[EMU|LOG] << %s\n", msg);
+		if(ARMPROC.instruction == 0x463F)
+		{
+			printf("[EMU|LOG] << %s\n", msg);
+		}
+		else if(ARMPROC.instruction == 0x4636)
+		{
+			printf("[EMU|WRN] << %s\n", msg);
+		}
+		else if(ARMPROC.instruction == 0x462D)
+		{
+			printf("[EMU|ERR] << %s\n", msg);
+		}
 		delete[] msg;
 		//printf("\nTriggered breakpoint\n");
 	}	
