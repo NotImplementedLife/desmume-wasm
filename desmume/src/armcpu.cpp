@@ -707,7 +707,12 @@ u32 armcpu_exec()
 #endif
 	#ifdef DEVELOPER
 	DEBUG_statistics.instructionHits[PROCNUM].thumb[ARMPROC.instruction>>6]++;
-	#endif
+	#endif	
+		
+	if(ARMPROC.instruction == 0x463F)
+	{
+		printf("Triggered breakpoint\n");
+	}	
 	cExecute = thumb_instructions_set[PROCNUM][ARMPROC.instruction>>6](ARMPROC.instruction);
 
 #ifdef GDB_STUB
