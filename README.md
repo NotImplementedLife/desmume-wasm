@@ -14,11 +14,25 @@ Example of DS code:
   push {r6}
   ldr r6, =message 
   mov r7, r7
-  pop {r7}
+  pop {r6}
 
 message:
     .ascii "Hello world from NDS logs!\n"
 ```
+
+# How to build
+
+You need CMake and Emscripten to be installed on your system.
+
+Go to `desmume-wasm/` and execute the following commands:
+
+```
+mkdir build
+cd build
+emcmake cmake ..
+emmake make
+```
+In the created `build` folder there should be two files: `nds.wasm`, `nds.js`. They are also available in the [releases](https://github.com/NotImplementedLife/desmume-wasm/releases/tag/build-wasm).
 
 # Performance
 
