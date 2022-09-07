@@ -1,43 +1,8 @@
 # DeSmuME-wasm
 
-WebAssembly port of the DeSmuME. 
+[WebAssembly port of the DeSmuME.](https://github.com/44670/desmume-wasm)
 
-Designed for iPhone/iPad, also workable on other devices with a modern browser.
-
-https://ds.44670.org/
-
-Please read this guide before creating a new issue, thanks!
-
-# Frequently Asked Questions
-
-**Q: There is no sound.**
-
-- A: The "Silent Switch" of your device should be "Off". If sound is still not working, please try to restart the app/add another icon on Home Screen/reboot the device.
-
-**Q: The performance is too slow/laggy.**
-
-- A: Please make sure iOS's system-wide "Low Power Mode" is disabled. The battery icon is yellow if it is enabled.
-
-**Q: How do I save my progress?**
-
-- A: Just save in the game and wait a few seconds, an auto-saving banner will appear, your save data will be stored in the web app's local storage automatically. On iOS you have to add the site to Home Screen first, and **your data will be deleted** when the Home Screen icon is removed.
-
-**Q: Do I have to export the save data?**
-
-- A: You DON'T have to export save data manually since auto-saving is present. To prevent the data loss caused by accidential deletion of the Home Screen icon or damaged device, you may export the save data to a safe place manually.
-
-**Q: After importing the save data, it takes me back to the main menu.**
-
-- A: It is an expected behavior, the save data was imported and you can continue playing by loading the game file again.
-
-**Q: It can't load any files.**
-
-- A: Only iOS >= 14.7 is supported, please update your OS first.
-
-**Q: How to blow on the microphone?**
-
-- A: Pressing 'R' button will emulate a blow on microphone. It *may* be useful for playing some games.
-
+This fork is meant to add new debug log features, so that programmers can easily check what happens in their code avoiding stdio logic, which takes up code space and uses at least one background layer to be displayed (which is incommodating if your game visuals need all 4 layers of a screen).
 
 # Performance
 
